@@ -29,7 +29,7 @@ void main() {
 }
 ```
 
-## ● final, const, 사칙연산
+## ● 상수 final, const, 사칙연산
 ```dart
 //final, const로 설정한 변수는 변경X
 void main() {
@@ -46,12 +46,18 @@ void main() {
   print(result);
   print(result is int);
   print(result is double);
+
+  // /:나누기, double형으로 반환
+  // ~/:몫, int형으로 반환
+  // %:나머지, int형으로 반환
 }
 ```
 
 ## ● 숫자 관련, 비교
 ```dart
-// ++/--
+// ++/-- 증감 연산자
+// 후위 연산(시작하면서 계산):x++,x--
+// 전위 연산(계산하면서 시작):++x,--x
 void main() {
   var v = 5;
   v++;
