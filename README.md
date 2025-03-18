@@ -1,5 +1,10 @@
 # Today I Learned
-****
+
+## @ Dart 언어란?
+▶ Google에서 만든 JavaScript와 유사하지만 다른 정적 언어
+  (Java - 클래스 및 매서드 구문 유사 / C# - 비동기 프로그래밍 async, await 등 유사)
+▶JavaScript의 동적 언어의 성능, 일관성 문제를 보완하기 위해 설계
+
 ## ● Dart 언어 - 실습
 - **[구구단](./구구단.dart)**
 - **[정사각형 출력](./정사각형_출력.dart)**
@@ -54,7 +59,7 @@ void main() {
 }
 ```
 ```dart
-// 비교 연산
+// 비교
 void main() {
   var a = 5;
   var b = 6;
