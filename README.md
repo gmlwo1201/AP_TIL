@@ -1,5 +1,8 @@
 # Today I Learned
 
+### 수평적 사고 : 같은 대상을 봐도 여러 가지 생각이 나오는데 이것을 수평적 사고라고 한다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ex) 자전거를 보고 그냥 자전거라고 생각하는 경우도 있고 인생에 비유하는 경우도 있다.
+
 ## @ Dart 언어란?
 ▶ Google에서 만든 JavaScript와 유사하지만 다른 정적 언어<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(Java - 클래스 및 매서드 구문 유사 / C# - 비동기 프로그래밍 async, await 등 유사)<br><br>
