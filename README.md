@@ -336,4 +336,6 @@ void main() {
   - _incrementCounter()에 의해 setState() 호출됨
   - setState() 호출됨에 따라 Scaffold 영역 갱신됨
 ## Scaffold클래스, AppBar 클래스
+* 머티리얼 디자인 앱 뼈대
+  - MaterialApp > Scaffold
 >>>>>>> 4주차 
