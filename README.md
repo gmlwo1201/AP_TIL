@@ -367,3 +367,9 @@ void main() {
   - children 속성
 * Stack - 위젯 순서대로
 * SingleChildScrollView - 화면 크기 넘어가면 스크롤 생성
+* ListView, ListTile - 리스트 표시하는 위젯
+  - ListTitle 위젯 이용해 리스트 아이템 쉽게 작성 가능
+* GridView - 열 수를 지정하여 그리드 형태로 표시하는 위젯
+* PageView - 여러 페이지 좌우로 슬라이드하여 넘길 수 있게 하는 위젯
+* AppBar, TabBar, Tab, TabBarView - AppBar에 TabBar를 배치하고 Tab/body에 TabBarView 배치해 탭으로 이동하는 화면 구성 가능
+* BottomNavigationBar - 하단에 2~5개 탭 메뉴 구성할 수 있게 해주는 위젯
