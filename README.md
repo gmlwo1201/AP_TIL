@@ -359,17 +359,61 @@ void main() {
   - 코드 수정 불가
 ## 화면 배치에 쓰는 위젯
 * Container - 너비, 높이가 있는 영역
+```dart
+body: Container(
+  width: 100,
+  height: 100,
+  color: Colors.red,
+  child: Text('디모이'),
+  padding: EdgeInsets.all(8.0),
+  margin: EdgeInsets.all(8.0),
+),
+```
 * width, height, padding, margin, child 속성
   - child 속성으로 자식 위젯 담을 수 있음
 * Columm - 수직 방향으로 위젯 배치
   - children 속성
 * Row - 수평 방향으로 위젯 배치
   - children 속성
+```dart
+body: Row( // Columm
+       children: [
+         Container(
+           width: 100,
+           height: 100,
+           color: Colors.red,
+           margin: EdgeInsets.all(10.0),
+           padding: EdgeInsets.all(10.0),
+           child: Text('111'),
+         ),
+         Container(
+           width: 100,
+          height: 100,
+           color: Colors.blue,
+           margin: EdgeInsets.all(10.0),
+           padding: EdgeInsets.all(10.0),
+           child: Text('222'),
+         ),
+         Container(
+           width: 100,
+           height: 100,
+           color: Colors.yellow,
+           margin: EdgeInsets.all(10.0),
+           padding: EdgeInsets.all(10.0),
+           child: Text('333'),
+         ),
+       ],
+      ),
+```
 * Stack - 위젯 순서대로
 * SingleChildScrollView - 화면 크기 넘어가면 스크롤 생성
-* ListView, ListTile - 리스트 표시하는 위젯
+* ListView, ListTile - 리스트 표시
   - ListTitle 위젯 이용해 리스트 아이템 쉽게 작성 가능
-* GridView - 열 수를 지정하여 그리드 형태로 표시하는 위젯
+* GridView - 열 수를 지정하여 그리드 형태로 표시
 * PageView - 여러 페이지 좌우로 슬라이드하여 넘길 수 있게 하는 위젯
 * AppBar, TabBar, Tab, TabBarView - AppBar에 TabBar를 배치하고 Tab/body에 TabBarView 배치해 탭으로 이동하는 화면 구성 가능
 * BottomNavigationBar - 하단에 2~5개 탭 메뉴 구성할 수 있게 해주는 위젯
+
+## 위치, 정렬 크기 위젯
+* Center - 중앙 정렬
+* Padding - 안쪽 여백 표현
