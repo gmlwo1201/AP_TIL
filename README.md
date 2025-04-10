@@ -406,10 +406,60 @@ body: Row( // Columm
       ),
 ```
 * Stack - 위젯 순서대로
+```dart
+body: Stack(
+       children: [
+         Container(width: 100, height: 100, color: Colors.red),
+         Container(width: 100, height: 100, color: Colors.blue),
+         Container(width: 100, height: 100, color: Colors.yellow),
+       ], // ctrl + alt + l = 정리
+),
+```
 * SingleChildScrollView - 화면 크기 넘어가면 스크롤 생성
+```dart
+body: SingleChildScrollView(
+        child: ListBody(
+          children: items.map((i) => Text('$i')).toList(),
+        ),
+),
+```
 * ListView, ListTile - 리스트 표시
   - ListTitle 위젯 이용해 리스트 아이템 쉽게 작성 가능
+```dart
+body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          ListTile(
+            leading: Icon(Icons.home, size: 40,),
+            title: Text('Home'),
+            trailing: Icon(Icons.navigate_next),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.event, size: 30,),
+            title: Text('Event'),
+            trailing: Icon(Icons.navigate_next),
+            onTap: () {},
+          ),ListTile(
+            leading: Icon(Icons.camera, size: 20,),
+            title: Text('Camera'),
+            trailing: Icon(Icons.navigate_next),
+            onTap: () {},
+          )
+        ],
+),
+```
 * GridView - 열 수를 지정하여 그리드 형태로 표시
+```dart
+body: GridView.count(
+          crossAxisCount: 2,
+          children: [
+            Container(color: Colors.red, margin: EdgeInsets.all(80.0),),
+            Container(color: Colors.blue, margin: EdgeInsets.all(80.0),),
+            Container(color: Colors.yellow, margin: EdgeInsets.all(80.0),)
+        ],
+),
+```
 * PageView - 여러 페이지 좌우로 슬라이드하여 넘길 수 있게 하는 위젯
 * AppBar, TabBar, Tab, TabBarView - AppBar에 TabBar를 배치하고 Tab/body에 TabBarView 배치해 탭으로 이동하는 화면 구성 가능
 * BottomNavigationBar - 하단에 2~5개 탭 메뉴 구성할 수 있게 해주는 위젯
