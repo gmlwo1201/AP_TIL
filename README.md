@@ -417,3 +417,19 @@ body: Row( // Columm
 ## 위치, 정렬 크기 위젯
 * Center - 중앙 정렬
 * Padding - 안쪽 여백 표현
+* Align - 자식 위젯 정렬 방향 지정
+* Expanded - 자식 위젯 크기 최대로 확장
+* SizedBox - 자식 위젯 특정 사이즈로 조정
+* Card - 카드 형태 모양으로 제공
+## 버튼 계열
+* ElevatedButton - 입체감 가지는 일반적인 버튼
+* TextButton - 평평한 텍스트 버튼
+* IconButton - 아이콘 표시하는 버튼
+* FloatingActionButton - 입체감 있는 둥근 버튼
+## 화면 표시용
+* Text - 글씨
+* Image - 이미지
+* Icon - 아이콘
+* Progress - 로딩 중/오래걸리는 작업 표시
+* CircleAvatar - 프로필 화면 등에 사용되는 원형 위젯
+* 
