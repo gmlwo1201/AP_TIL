@@ -461,24 +461,199 @@ body: GridView.count(
 ),
 ```
 * PageView - 여러 페이지 좌우로 슬라이드하여 넘길 수 있게 하는 위젯
+```dart
+body: PageView(
+        children: [
+          Container(color: Colors.red),
+          Container(color: Colors.blue),
+          Container(color: Colors.yellow)
+        ]
+),
+```
 * AppBar, TabBar, Tab, TabBarView - AppBar에 TabBar를 배치하고 Tab/body에 TabBarView 배치해 탭으로 이동하는 화면 구성 가능
 * BottomNavigationBar - 하단에 2~5개 탭 메뉴 구성할 수 있게 해주는 위젯
+```dart
+@override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Tab'),
+            bottom: TabBar(
+                tabs: [
+                  Tab(icon: Icon(Icons.tag_faces)),
+                  Tab(text: '메뉴2'),
+                  Tab(icon: Icon(Icons.info), text: '메뉴3',),
+                ],
+            ),
+          ),
+          body: TabBarView(
+              children: [
+                Container(color: Colors.red),
+                Container(color: Colors.blue),
+                Container(color: Colors.yellow),
+              ]
+          ),
+          floatingActionButton: FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () {},
+          ),
+          bottomNavigationBar: BottomNavigationBar(items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Profile'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.notifications),
+                label: 'Notifications'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Person'
+            ),
+    ]),
+  ),
+);
+```
 
 ## 위치, 정렬 크기 위젯
 * Center - 중앙 정렬
+```dart
+body: Center(
+        child: Container(
+          width: 100,
+          height: 100,
+          color: Colors.red,
+        ),
+)
+```
 * Padding - 안쪽 여백 표현
+```dart
+ body: Padding(
+        padding: EdgeInsets.all(40.0),
+        child: Container(
+          color: Colors.red,
+        ),
+      ),
+```
 * Align - 자식 위젯 정렬 방향 지정
+```dart
+body: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          color: Colors.red,
+          width: 100,
+          height: 100,
+        ),
+      ),
+```
 * Expanded - 자식 위젯 크기 최대로 확장
+```dart
+ body: Row(
+        children: [
+          Expanded(flex: 2, child: Container(color: Colors.red)),
+          Expanded(flex: 3, child: Container(color: Colors.blue)),
+          Expanded(flex: 4, child: Container(color: Colors.yellow)),
+        ],
+      ),
+```
 * SizedBox - 자식 위젯 특정 사이즈로 조정
+```dart
+body: SizedBox(
+        width: 100,
+        height: 100,
+        child: Container(
+          color: Colors.red,
+        ),
+      ),
+```
 * Card - 카드 형태 모양으로 제공
+```dart
+body: Center(
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          elevation: 40.0,
+          child: SizedBox(
+            width: 200,
+            height: 200,
+            child: Center(child: Text('내용')),
+          ),
+        ),
+      ),
+```
+
 ## 버튼 계열
 * ElevatedButton - 입체감 가지는 일반적인 버튼
 * TextButton - 평평한 텍스트 버튼
 * IconButton - 아이콘 표시하는 버튼
 * FloatingActionButton - 입체감 있는 둥근 버튼
+```dart
+body: Column(
+        children: [
+          ElevatedButton(
+              onPressed: () {},
+              child: Text('RaisedButton')
+          ),
+          TextButton(
+              onPressed: () {},
+              child: Text('TextButton')
+          ),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add),
+              iconSize: 100.0,
+          ),
+          FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.add)
+          ),
+        ],
+      ),
+```
+
 ## 화면 표시용
 * Text - 글씨
+```dart
+body: Center(
+        child: Text('Hello World',
+          style: TextStyle(
+            fontSize: 40.0,
+            color: Colors.red,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+```
 * Image - 이미지
+```dart
+body: Image.network('http://bit.ly/2Pv4t8'),
+```
 * Icon - 아이콘
+```dart
+body: Icon(
+        Icons.home,
+        color: Colors.red,
+        size: 600.0,
+      ),
+```
 * Progress - 로딩 중/오래걸리는 작업 표시
+```dart
+body: Column(
+        children: [
+          CircularProgressIndicator(),
+          LinearProgressIndicator()
+        ],
+      ),
+```
 * CircleAvatar - 프로필 화면 등에 사용되는 원형 위젯
+```dart
+body: Center(
+          child: CircleAvatar(
+            child: Icon(Icons.person),
+        )
+      ),
+```
