@@ -369,6 +369,9 @@ body: Container(
   margin: EdgeInsets.all(8.0),
 ),
 ```
+![image](https://github.com/user-attachments/assets/ca94605d-7667-46b9-a420-14efc38166aa)
+
+
 * width, height, padding, margin, child 속성
   - child 속성으로 자식 위젯 담을 수 있음
 * Columm - 수직 방향으로 위젯 배치
@@ -405,6 +408,8 @@ body: Row( // Columm
        ],
       ),
 ```
+![image](https://github.com/user-attachments/assets/51c51eed-5916-4c4f-8a53-39119269aeb1)
+
 * Stack - 위젯 순서대로
 ```dart
 body: Stack(
