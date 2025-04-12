@@ -374,12 +374,12 @@ body: Container(
 
 * width, height, padding, margin, child 속성
   - child 속성으로 자식 위젯 담을 수 있음
-* Columm - 수직 방향으로 위젯 배치
+* Column - 수직 방향으로 위젯 배치
   - children 속성
 * Row - 수평 방향으로 위젯 배치
   - children 속성
 ```dart
-body: Row( // Columm
+body: Row( // Column
        children: [
          Container(
            width: 100,
