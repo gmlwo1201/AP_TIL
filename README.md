@@ -664,3 +664,36 @@ body: Center(
 ```
 >>>>>>>> 5주차
 **************
+## 입력용 위젯
+* TextField - InputDecoration으로 다양한 입력 형태 선택
+* CheckBox/Switch - 선택 체크, 체크 해제 지원
+* Radio/RadioListTile - 선택 그룹 중 하나 선택
+* DropDownButton - 여러 아이템 중 하나 선택
+
+## 다이얼로그
+* AlertDialog - 사용자 확인 요구 or 메시지 표시
+* DatePicker - 날짜 선택
+  - 플러터에서 Future<> 이란? :
+* TimePicker - 시간 선택
+
+## 이벤트
+* GestureDetector, InkWell - 글자나 그림 같은 이벤트 속성이 없는 위젯에서 이벤트 사용
+
+## 애니메이션
+* Hero - 페이지 전환 시 연결되는 애니메이션 지원
+  - tag 값 동일하게 맞춤
+* AnimatedContainer - 한 화면 내에서 변경된 프로퍼티에 의한 애니메이션
+  - setState()에 의해 화면을 새로 그릴 때의 애니메이션
+* SilverAppBar/SilverFillRemaining - 화면 헤더 동적 표현
+* SilverAppBar, SilverList - ListView 사용해 Silver 효과 줌
+
+## 쿠퍼티노 디자인
+* 쿠퍼티노 기본 UI - 머티리얼 디자인 대신 쿠퍼티노 디자인 적용
+  - AppBar > CupertinoNavigationBar
+  - Switch > CupertinoSwitch
+  - ElevatedButton > CupertinoButton
+  ![image](https://github.com/user-attachments/assets/cafa7bc4-2122-4f90-8031-dbd85b4ccec3)
+* CupertinoAlertDialog
+  
+* CupertinoPicker
+
