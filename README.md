@@ -996,11 +996,10 @@ class TestDialog extends StatelessWidget {
 ![image](https://github.com/user-attachments/assets/27aa64eb-bcea-4059-9eb1-a5ec33880168)
 
 * DatePicker - 날짜 선택
-  - 플러터에서 Future<> 이란? :
-<br>
+- 플러터에서 Future<> 이란? : <br>
 ![image](https://github.com/user-attachments/assets/8d6cf2df-1cb1-4149-b5ef-fa5d1efbd7d4)
 
-* TimePicker - 시간 선택
+* TimePicker - 시간 선택 <br>
 ![image](https://github.com/user-attachments/assets/c4a074cf-0d7e-4913-bb84-67774e3da080)
 
 ## 이벤트
@@ -1108,25 +1107,25 @@ class HeroDetailPage extends StatelessWidget {
 ![image](https://github.com/user-attachments/assets/109474a9-d1b9-495a-8e5d-ff7eb92dface)
 
 * AnimatedContainer - 한 화면 내에서 변경된 프로퍼티에 의한 애니메이션
-  - setState()에 의해 화면을 새로 그릴 때의 애니메이션
+  - setState()에 의해 화면을 새로 그릴 때의 애니메이션<br>
 ![image](https://github.com/user-attachments/assets/378a2de7-262f-4b85-ac2c-eb1c987c7a66)
 
-* SilverAppBar/SilverFillRemaining - 화면 헤더 동적 표현
+* SilverAppBar/SilverFillRemaining - 화면 헤더 동적 표현<br>
 ![image](https://github.com/user-attachments/assets/2132084f-3414-4a31-88f6-1df45fba97c3)
 
-* SilverAppBar, SilverList - ListView 사용해 Silver 효과 줌
+* SilverAppBar, SilverList - ListView 사용해 Silver 효과 줌<br>
 ![image](https://github.com/user-attachments/assets/9ebbb19b-4632-4b39-940c-086e4a1710f4)
 
 ## 쿠퍼티노 디자인
 * 쿠퍼티노 기본 UI - 머티리얼 디자인 대신 쿠퍼티노 디자인 적용
   - AppBar > CupertinoNavigationBar
   - Switch > CupertinoSwitch
-  - ElevatedButton > CupertinoButton
+  - ElevatedButton > CupertinoButton<br>
   ![image](https://github.com/user-attachments/assets/cafa7bc4-2122-4f90-8031-dbd85b4ccec3)
-* CupertinoAlertDialog
+* CupertinoAlertDialog<br>
 ![image](https://github.com/user-attachments/assets/f0a1df8f-530d-49f5-be84-109f17b2732c)
 
-* CupertinoPicker
+* CupertinoPicker<br>
 ![image](https://github.com/user-attachments/assets/294aef87-a14a-439a-b373-46c02b0bac08)
 
 >>>>>>>>>>> 6주차
