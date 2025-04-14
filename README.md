@@ -664,28 +664,457 @@ body: Center(
 ```
 >>>>>>>> 5주차
 **************
+
 ## 입력용 위젯
 * TextField - InputDecoration으로 다양한 입력 형태 선택
+```dart
+import 'package:flutter/material.dart';
+
+class TestTextfield extends StatelessWidget {
+  const TestTextfield({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('TextField 테스트'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(),
+
+          SizedBox(height: 40),
+
+          TextField(
+            decoration: InputDecoration(
+              labelText: '여기에 입력하세요',
+            ),
+          ),
+
+          SizedBox(height: 40),
+
+
+          TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: '여기에 입력하세요',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+![image](https://github.com/user-attachments/assets/d5bd8cc5-4230-42bf-af66-90610f374383)
+
 * CheckBox/Switch - 선택 체크, 체크 해제 지원
+```dart
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class TestCheckbox extends StatefulWidget {
+  const TestCheckbox({super.key});
+
+  @override
+  State<TestCheckbox> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<TestCheckbox> {
+  bool? isChecked1 = false;
+  bool isChecked2 = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('CheckBox/Switch test'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Checkbox(
+                value: isChecked1,
+                onChanged: (value) {
+                  setState(() {
+                    isChecked1 = value;
+                  });
+                }
+            ),
+            Text('$isChecked1'),
+
+            SizedBox(height: 80),
+
+            Switch(
+                value: isChecked2,
+                onChanged: (value) {
+                  setState(() {
+                    isChecked2 = value;
+                  });
+                }
+            ),
+            Text('$isChecked2')
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+![image](https://github.com/user-attachments/assets/c712337c-e373-46dc-91d7-67dde8ae41f5)
+
 * Radio/RadioListTile - 선택 그룹 중 하나 선택
+```dart
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+enum FoodKind {
+  /// 한식
+  food1,
+  /// 중식
+  food2,
+  /// 양식
+  food3
+}
+
+class TestRadio extends StatefulWidget {
+  const TestRadio({super.key});
+
+  @override
+  State<TestRadio> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<TestRadio> {
+  FoodKind? foodKind = FoodKind.food1; // 한식
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('Radio test'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('$foodKind'),
+
+            // ListTile(
+            //   title: Text('한식'),
+            //   leading: Radio(
+            //       value: FoodKind.food1,
+            //       groupValue: foodKind,
+            //       onChanged: (value) {
+            //         setState(() {
+            //           foodKind = value;
+            //         });
+            //       }
+            //   ),
+            // ),
+            // ListTile(
+            //   title: Text('중식'),
+            //   leading: Radio(
+            //       value: FoodKind.food2,
+            //       groupValue: foodKind,
+            //       onChanged: (value) {
+            //         setState(() {
+            //           foodKind = value;
+            //         });
+            //       }
+            //   ),
+            // ),
+            // ListTile(
+            //   title: Text('양식'),
+            //   leading: Radio(
+            //       value: FoodKind.food3,
+            //       groupValue: foodKind,
+            //       onChanged: (value) {
+            //         setState(() {
+            //           foodKind = value;
+            //         });
+            //       }
+            //   ),
+            // )
+
+            RadioListTile(
+                title: Text('한식'),
+                value: FoodKind.food1,
+                groupValue: foodKind,
+                onChanged: (value) {
+                setState(() {
+                  foodKind = value;
+                });
+              }
+              ),
+            RadioListTile(
+                title: Text('중식'),
+                value: FoodKind.food2,
+                groupValue: foodKind,
+                onChanged: (value) {
+                  setState(() {
+                    foodKind = value;
+                  });
+                }
+            ),
+            RadioListTile(
+                title: Text('양식'),
+                value: FoodKind.food3,
+                groupValue: foodKind,
+                onChanged: (value) {
+                  setState(() {
+                    foodKind = value;
+                  });
+                }
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+```
+![image](https://github.com/user-attachments/assets/440cc2f1-c2d4-47e9-ba6c-ff90c002e2bf)
+
 * DropDownButton - 여러 아이템 중 하나 선택
+```dart
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class TestDropdownbutton extends StatefulWidget {
+  const TestDropdownbutton({super.key});
+
+  @override
+  State<TestDropdownbutton> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<TestDropdownbutton> {
+  final _valueList = ['첫 번째', '두 번째', '세 번째'];
+  var _selectedValue = '첫 번째';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('DropDownButton test'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DropdownButton(
+                value: _selectedValue,
+                items: _valueList.map((value) {
+                  return DropdownMenuItem(
+                  value: value,
+                  child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedValue = value!;
+                  });
+                }
+            ),
+            Text('선택된 항목은 `$_selectedValue`입니다!'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+![image](https://github.com/user-attachments/assets/63327929-8ef6-41c3-a11d-5d4fd1356058)
 
 ## 다이얼로그
 * AlertDialog - 사용자 확인 요구 or 메시지 표시
+```dart
+import 'package:flutter/material.dart';
+
+class TestDialog extends StatelessWidget {
+  const TestDialog({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dialog 테스트'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('제목'),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: [
+                              Text('Alert Dialog 입니다.'),
+                              Text('OS를 눌러 닫습니다.')
+                            ],
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                },
+                              child: Text('OK')
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                },
+                              child: Text('Cancel')
+                          )
+                        ],
+                      );
+                    }
+                );
+              },
+              child: Text('Alert Dialog 띄우기')
+          )
+        ],
+      ),
+    );
+  }
+}
+
+```
+![image](https://github.com/user-attachments/assets/27aa64eb-bcea-4059-9eb1-a5ec33880168)
+
 * DatePicker - 날짜 선택
   - 플러터에서 Future<> 이란? :
+![image](https://github.com/user-attachments/assets/8d6cf2df-1cb1-4149-b5ef-fa5d1efbd7d4)
+
 * TimePicker - 시간 선택
+![image](https://github.com/user-attachments/assets/c4a074cf-0d7e-4913-bb84-67774e3da080)
 
 ## 이벤트
 * GestureDetector, InkWell - 글자나 그림 같은 이벤트 속성이 없는 위젯에서 이벤트 사용
+```dart
+import 'package:flutter/material.dart';
+
+class TestGesture extends StatelessWidget {
+  const TestGesture({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('GestureDetector, InkWell 테스트'),
+      ),
+      body: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  print('GestureDetector Click!');
+                },
+                child: Text('클릭 Me!'),
+              ),
+
+              SizedBox(height: 80),
+
+              InkWell(
+                onTap: () {
+                  print('InkWell Click!');
+                },
+                child: Text('클릭 Me too!'),
+              )
+            ],
+      )
+      ),
+    );
+  }
+}
+
+```
+![image](https://github.com/user-attachments/assets/3a1e2b7e-7d9b-415a-bfe2-6942499a799e)
 
 ## 애니메이션
 * Hero - 페이지 전환 시 연결되는 애니메이션 지원
   - tag 값 동일하게 맞춤
+```dart
+// hero_page
+import 'package:b_6_2/hero_detail_page.dart';
+import 'package:flutter/material.dart';
+
+class HeroPage extends StatelessWidget {
+  const HeroPage({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Hero test'),
+      ),
+      body: Center(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context) => HeroDetailPage()));
+          },
+          child: Hero(
+              tag: 'image',
+              child: Image.asset('assets/스크린샷(3).png',
+              width: 100,
+              height: 1000,
+              )
+          ),
+        ),
+
+      ),
+    );
+  }
+}
+```
+```dart
+// hero_detail_page
+import 'package:flutter/material.dart';
+
+class HeroDetailPage extends StatelessWidget {
+  const HeroDetailPage({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Hero Detail')),
+      body: Hero(
+        tag: 'image',
+        child: Image.asset('assets/png'),
+      ),
+    );
+  }
+}
+```
+![image](https://github.com/user-attachments/assets/109474a9-d1b9-495a-8e5d-ff7eb92dface)
+
 * AnimatedContainer - 한 화면 내에서 변경된 프로퍼티에 의한 애니메이션
   - setState()에 의해 화면을 새로 그릴 때의 애니메이션
+![image](https://github.com/user-attachments/assets/378a2de7-262f-4b85-ac2c-eb1c987c7a66)
+
 * SilverAppBar/SilverFillRemaining - 화면 헤더 동적 표현
+![image](https://github.com/user-attachments/assets/2132084f-3414-4a31-88f6-1df45fba97c3)
+
 * SilverAppBar, SilverList - ListView 사용해 Silver 효과 줌
+![image](https://github.com/user-attachments/assets/9ebbb19b-4632-4b39-940c-086e4a1710f4)
 
 ## 쿠퍼티노 디자인
 * 쿠퍼티노 기본 UI - 머티리얼 디자인 대신 쿠퍼티노 디자인 적용
@@ -694,6 +1123,10 @@ body: Center(
   - ElevatedButton > CupertinoButton
   ![image](https://github.com/user-attachments/assets/cafa7bc4-2122-4f90-8031-dbd85b4ccec3)
 * CupertinoAlertDialog
-  
-* CupertinoPicker
+![image](https://github.com/user-attachments/assets/f0a1df8f-530d-49f5-be84-109f17b2732c)
 
+* CupertinoPicker
+![image](https://github.com/user-attachments/assets/294aef87-a14a-439a-b373-46c02b0bac08)
+
+>>>>>>>>>>> 6주차
+*************
