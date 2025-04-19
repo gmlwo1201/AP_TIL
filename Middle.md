@@ -169,6 +169,11 @@ class Person {
   - fonts - 커스텀 폰트 추가
   > flutter pub get: yaml 수정 후 실행해야 의존성 적용 / outdated: 사용중인 패키지들 업데이트 상태 확인 / upgrade: 가능한 최신 버전으로 업데이트
 * **샘플 앱 기본 구조**(Ex. Stateless/StatefulWidget 기본 구조, 각각 동작성 차이)
+  * @ Stateless, Stateful 동작성 차이
+    - Stateless
+> 1. build 메소드 return 앞 어떤 화면인지 알 수 있게 print 로그 작성 | 2. 앱 실행 | 3. push로 두 번째 페이지 표시 | 4. pop으로 두 번째 페이지 결과 첫 번째 페이지로 전달
+    - Stateful
+> 1. push 메소드로 SecondStatefulPage 클래스 표시 | 2. FirstStatefulPage 클래스 build 메소드와 | 3. SecondStatefulPage 클래스 build 메소드 호출
   * main() - 앱의 시작점, 함수에 인스턴스를 전달함
   * *StatelessWidget* - 상태가 없는 위젯 정의(한번 그려진 후 다시 그리지 않음)
     - 프로퍼티를 변수로 가지지 않음
@@ -999,8 +1004,102 @@ class HeroDetailPage extends StatelessWidget {
 
 ## 6. 내비게이션
 * **내비게이션 동작성**
+> 실행되는 화면이 스택 구조로 메모리에 쌓임 / 다음 화면으로 전환:push, 이전 화면:pop / 스택에서 모두 제거되면 앱 종료
 * **push/pop 사용법**
+* push
+  - 첫 번째 인수=context, 두 번째=MaterialRoute 필요
+```dart
+class FirstPage extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+ return Scaffold(
+  appBar: AppBar(
+   title: Text('다음 페이지로'),
+   onPressed: () {
+    Navigator.push(   // 1
+     context,
+     MaterialPageRoute(builder: (context) => SecondPage()),  // 2
+    );
+   },
+  ),
+ );
+```
+- 1. Navigator.push 메소드 두 번째 인수로 사용된
+- 2. MaterialPageRoute 클래스가 각 플랫폼에 맞는 화면 전환 지원
+
+* pop
+  - 현재 화면 종료, 이전 화면으로 돌아감
+ ```dart
+ class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+  return Scaffold(
+   appBar: AppBar(
+    title: Text('Second'),
+    ),
+    body: ElevatedButton(
+     child: Text('이전 페이지로')
+     onPressed: () {
+      Navigator.pop(context);  // 현재 화면 종료, 이전 화면으로 돌아가기
+     },
+    ),
+   );
+  }
+ }
+ ```
 * **routes 이용한 방법**(강의 설명 내용)
+  * routes - 간결하고 체계적인 방법으로 내비게이션 구성 가능
+```dart
+class MyApp extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+  return MaterialApp(
+   title: 'Flutter Demo',
+   theme: ThemeData(
+    primarySwatch: Colors.blue,
+   ),
+   home:FistPage(),
+   route: {
+    '/first':(context) => FirstPage(),
+    '/second':(context) => SecondPage(),
+   },
+  );
+ }
+}
+```
+ - route 프로퍼티에 Map 형태(키-값)로 문자열과 목적지 인스턴스 작성
+ - /first > FistPage | /second > SecondPage
+ * routes 화면 이동
+  - push() 대신pushNamed() 사용해 내비게이션 실행 가능
+```dart
+onPressed: () async {
+ final result = await Navigator.pushNamed(context, '/second');
+ print(result);
+}
+```
 
 ## 7. 플러터 2 변경점
 * **Null 안전한 코드**(flutter 3 기준 Null에 안전한 코드 LLM으로 숙지)
+  * ? - null 가능 변수
+  ```dart
+  String? title = null
+  ```
+  * 변수 사용 전 null 검사
+  ```dart
+  if (title != null) {
+   print(title.length);
+  }
+  ```
+  * ! - null 아님 단언
+  ```dart
+  print(title!.length);  // 실제로 null이면 런타임 에러
+  ```
+  * ?? - null이면 대체값 사용
+  ```dart
+  String? title = null;
+  String result = title ?? '기본값';
+
+  // null일 때만 값 할당
+  String? title;
+  title ?? = '초기값';
+  ```
